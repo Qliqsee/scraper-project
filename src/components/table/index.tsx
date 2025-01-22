@@ -107,6 +107,8 @@ export default function Table({ type }: { type: "collection" | "user" }) {
       ),
     })) || [];
 
+  console.log("data?.result", data?.result, "rows", rows);
+
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
@@ -162,9 +164,9 @@ export default function Table({ type }: { type: "collection" | "user" }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows?.map(({ user, userData: row }) => {
+              {rows?.map(({ user, userData: row }, i) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.location}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={i}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (

@@ -11,7 +11,7 @@ export type ApiResponse<T = any> = {
 };
 
 const useApi = (): IApi => {
-  const baseURL = "http://52.228.32.198:5000/api/";
+  const baseURL = "https://datascraper-api.azurewebsites.net/api/";
 
   const get = async <T,>(url: string): Promise<ApiResponse<T> | any> => {
     try {
