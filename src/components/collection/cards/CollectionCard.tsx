@@ -20,10 +20,6 @@ const CollectionCard = ({ collection }: { collection: CollectionItem }) => {
     // Reference string length (can be modified as needed)
     const maxLength = 45;
 
-    if (inputString.length < maxLength) {
-      inputString = inputString + " libre unst consectetur adispicing elit";
-    }
-
     // Check if the input string is longer than the reference string
     if (inputString.length > maxLength) {
       // Truncate the string and append '...'

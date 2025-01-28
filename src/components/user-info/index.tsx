@@ -13,6 +13,15 @@ import Tag from "../pill/Tag";
 
 export type Panel = "Facebook" | "Instagram" | "Linkedin" | "";
 
+function truncateString(inputString: string, maxLength = 20) {
+  if (inputString.length > maxLength) {
+    // Truncate the string and append '...'
+    return inputString.slice(0, maxLength) + "...";
+  }
+  // Return the input string if it's not too long
+  return inputString;
+}
+
 const UserInfo = () => {
   const { setUserId, userId } = useGlobalContext();
 
@@ -73,7 +82,7 @@ const UserInfo = () => {
         <Stack direction={"row"} flexWrap={"wrap"} rowGap={"12px"}>
           {user?.gofundmeDonations?.map((d) => (
             <Campaign
-              name={d?.donationName}
+              name={truncateString(d?.donationName, 40)}
               url={d?.donationUrl}
               contribution={d?.donationAmount}
               matchConfidence={d.matchConfidence}
@@ -84,9 +93,9 @@ const UserInfo = () => {
         <Stack direction={"row"} flexWrap={"wrap"} rowGap={"12px"}>
           {user?.changedotorgPetitions?.map((p) => (
             <Campaign
-              name={p?.petitionName}
+              name={truncateString(p?.petitionName, 40)}
               url={p?.petitionUrl}
-              contribution={p?.petitionComment}
+              contribution={truncateString(p?.petitionComment)}
               matchConfidence={p.matchConfidence}
             />
           ))}
