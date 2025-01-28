@@ -146,6 +146,7 @@ export default function Table({ type }: { type: "collection" | "user" }) {
             <option value={""}>All</option>
             <option value={"instagram"}>Instagram</option>
             <option value={"facebook"}>Facebook</option>
+            <option value={"linkedin"}>Linkedin</option>
           </Select>
         </Box>
       </Stack>
