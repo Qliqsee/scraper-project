@@ -28,7 +28,7 @@ export type ChangeDotOrgPetition = {
   matchConfidence: "high" | "medium" | "low";
 };
 
-export type Source = "instagram" | "facebook" | "linkedin";
+export type Source = "instagram" | "facebook" | "linkedin" | "gofundme" | "change.org" | "";
 
 export type iCollectionUser = {
   id: number;

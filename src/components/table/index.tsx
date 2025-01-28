@@ -15,6 +15,9 @@ import { iCollectionUser, Source } from "@/utils/types/globals.type";
 import { TextField } from "../input/TextField";
 import { Select } from "../input/Select";
 import { useDebounce } from "use-debounce";
+import changedotorgLogo from "@/assets/changedotorg.png";
+import gofundmeLogo from "@/assets/gofundme.svg";
+import Image from "next/image";
 
 interface Column {
   id: "name" | "location" | "tags" | "metadata";
@@ -63,6 +66,10 @@ function getSocialMediaLogo(platform: Source) {
       return <InstagramLogo weight="fill" size={24} />;
     case "linkedin":
       return <LinkedinLogo weight="fill" size={24} />;
+    case "change.org":
+      return <Image alt="" height={24} width={24} src={changedotorgLogo} />;
+    case "gofundme":
+      return <Image alt="" height={24} width={24} src={gofundmeLogo} />;
     default:
       return null;
   }
