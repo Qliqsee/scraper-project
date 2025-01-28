@@ -5,6 +5,8 @@ export const UserinfoWrapper = styled(Box)`
   padding: 22px 24px;
   border: 1px solid #cbd5e1;
   border-radius: 32px;
+  position: sticky;
+  top: 40px;
 `;
 
 export const UserinfoSectionTitle = styled(Box)`

@@ -96,6 +96,7 @@ export const SelectWrapper = styled.span`
 interface SelectProps {
   error?: boolean;
   notRounded?: boolean;
+  bRadius?: string;
 }
 
 export const Select = styled.select<SelectProps>`
@@ -116,6 +117,6 @@ export const Select = styled.select<SelectProps>`
   line-height: 16px;
   padding: 0px 10px 0 10px;
   border: 1px solid #94a3b8;
-  ${({ notRounded }) => (notRounded ? "" : `  border-radius: 10px;`)}
+  ${({ notRounded, bRadius }) => (notRounded ? "" : `  border-radius: ${bRadius || "10px"};`)}
   transition: all 0.2s;
 `;

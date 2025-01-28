@@ -12,9 +12,10 @@ type SelectProps = {
   name?: string;
   errorMessage?: string;
   notRounded?: boolean;
+  bRadius?: string;
 };
 
-export const Select = ({ label, required, notRounded, onChange, value, errorMessage, name, children }: SelectProps) => {
+export const Select = ({ label, required, notRounded, bRadius, onChange, value, errorMessage, name, children }: SelectProps) => {
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     onChange?.(e);
   };
@@ -28,7 +29,14 @@ export const Select = ({ label, required, notRounded, onChange, value, errorMess
         </InputLabel>
       )}
       <SelectWrapper>
-        <StyledSelect notRounded={notRounded} error={!!errorMessage} onChange={handleChange} name={name} value={value}>
+        <StyledSelect
+          notRounded={notRounded}
+          bRadius={bRadius}
+          error={!!errorMessage}
+          onChange={handleChange}
+          name={name}
+          value={value}
+        >
           {children}
         </StyledSelect>
       </SelectWrapper>

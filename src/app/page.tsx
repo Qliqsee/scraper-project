@@ -8,6 +8,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 import { TextField } from "@/components/input/TextField";
 import UserInfo from "@/components/user-info";
 import Table from "@/components/table";
+import { Select } from "@/components/input/Select";
 
 export default function Home() {
   const { collection } = useGlobalContext();
@@ -33,13 +34,20 @@ const UserDetail = () => {
   return (
     <DashboardLayout>
       <Stack mt="40px" direction={"row"} columnGap={"40px"} rowGap={"12px"}>
-        <Box width={"35%"}>
+        <Box width={"25%"}>
           <TextField value={collection?.title} label="Name" />
         </Box>
-        <Box width={"35%"}>
+        <Box width={"25%"}>
+          <Select bRadius="123px" label="Reference Links">
+            {collection?.referenceLinks?.map((link, i) => (
+              <option key={i}>{link}</option>
+            ))}
+          </Select>
+        </Box>
+        <Box width={"25%"}>
           <TextField value={collection?.tags.join(", ")} label="Tag" />
         </Box>
-        <Box width={"35%"}>
+        <Box width={"25%"}>
           <TextField value={"Canada"} label="Country" />
         </Box>
       </Stack>

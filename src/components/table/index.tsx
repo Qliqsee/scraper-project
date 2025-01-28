@@ -95,13 +95,17 @@ export default function Table({ type }: { type: "collection" | "user" }) {
     }`
   );
 
+  React.useEffect(() => {
+    setPage(0);
+  }, [query]);
+
   const rows =
     data?.result?.map((user) => ({
       user,
       userData: createData(
         user.id,
         user.name || "Not available",
-        user.location || "Not available",
+        user.location || "Canada",
         getTags(user.tags) || "Not available",
         getSocialMediaLogos(user.sources) || "Not available"
       ),
@@ -144,7 +148,7 @@ export default function Table({ type }: { type: "collection" | "user" }) {
           <CircularProgress />
         </Stack>
       ) : (
-        <TableContainer sx={{ maxHeight: 440 }}>
+        <TableContainer>
           <MuiTable stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>

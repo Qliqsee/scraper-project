@@ -18,12 +18,14 @@ export type GoFundMeDonation = {
   donationUrl: string;
   donationName: string;
   donationAmount: string;
+  matchConfidence: "high" | "medium" | "low";
 };
 
 export type ChangeDotOrgPetition = {
   petitionUrl: string;
   petitionName: string;
   petitionComment: string;
+  matchConfidence: "high" | "medium" | "low";
 };
 
 export type Source = "instagram" | "facebook" | "linkedin";
@@ -48,6 +50,7 @@ export interface iUser {
   tags: string[];
   facebookProfiles: SocialProfile[]; // Array of Facebook profile URLs (can be empty)
   instagramProfiles: SocialProfile[]; // Array of Instagram profile objects
+  linkedinProfiles: SocialProfile[]; // Array of Instagram profile objects
   gofundmeDonations: GoFundMeDonation[]; // Array of GoFundMe donation links (can be empty)
   changedotorgPetitions: ChangeDotOrgPetition[]; // Array of Change.org petition links (can be empty)
 }
